@@ -1,0 +1,47 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Downloads/education-statistics/edstats-csv-zip-32-mb-")
+library(readr)
+Country <- read_csv("EdStatsCountry.csv")
+View(Country)
+```
+
+```{r}
+d2 <- read_csv("EdStatsData.csv")
+View(d2)
+```
+
+```{r}
+d3 <- read_csv("EdStatsSeries.csv")
+View(d3)
+```
+
+```{r}
+unique(d2$`Country Name`)
+```
+
+
+```{r}
+arab <- (filter(d2, `Country Name` == "Arab World"))
+```
+
+```{r}
+rowSums(is.na(arab))
+```
+
+
+
+
+```{r}
+View(arab[rowSums(is.na(arab)) < 66,])
+```
+
+
